@@ -15,10 +15,28 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name = "DIrBackup"
+        url = "https://maven.pkg.github.com/skpub/DIrBackup"
+        credentials {
+            username = System.getenv("GITHUB_USERNAME")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+    maven {
+        name = "CalenderTaskScheduler"
+        url = "https://maven.pkg.github.com/skpub/CalenderTaskSchduler"
+        credentials {
+            username = System.getenv("GITHUB_USERNAME")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
+    implementation "org.sk-dev:calendertaskscheduler:1.0.0"
+    implementation "org.sk-dev:dirbackup:1.0.0"
 }
 
 def targetJavaVersion = 17
