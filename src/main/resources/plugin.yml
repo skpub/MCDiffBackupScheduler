@@ -1,0 +1,4 @@
+name: MCDiffBackupScheduler
+version: '${version}'
+main: org.sk_dev.mcdiffbackupscheduler.MCDiffBackupScheduler
+api-version: 1.20
