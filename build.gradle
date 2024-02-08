@@ -17,7 +17,7 @@ repositories {
     }
     maven {
         name = "DIrBackup"
-        url = "https://maven.pkg.github.com/skpub/DIrBackup"
+        url = "https://maven.pkg.github.com/skpub/DIrBackup/"
         credentials {
             username = System.getenv("GITHUB_USERNAME")
             password = System.getenv("GITHUB_TOKEN")
@@ -25,7 +25,7 @@ repositories {
     }
     maven {
         name = "CalenderTaskScheduler"
-        url = "https://maven.pkg.github.com/skpub/CalenderTaskSchduler"
+        url = "https://maven.pkg.github.com/skpub/CronParser/"
         credentials {
             username = System.getenv("GITHUB_USERNAME")
             password = System.getenv("GITHUB_TOKEN")
@@ -35,8 +35,8 @@ repositories {
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
-    implementation "org.sk-dev:calendertaskscheduler:1.0.0"
-    implementation "org.sk-dev:dirbackup:1.0.0"
+    implementation("org.sk_dev:cronparser:1.0.1")
+    implementation("org.sk-dev:dirbackup:1.0.0")
 }
 
 def targetJavaVersion = 17
@@ -61,5 +61,15 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+configurations {
+    extraLibs
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect {it.isDirectory() ? it : zipTree(it)}
     }
 }

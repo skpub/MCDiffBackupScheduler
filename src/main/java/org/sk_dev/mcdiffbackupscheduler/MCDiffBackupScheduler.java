@@ -7,6 +7,7 @@ public final class MCDiffBackupScheduler extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        BackupMain main = new BackupMain();
     }
 
     @Override
