@@ -3,11 +3,11 @@ package org.sk_dev.mcdiffbackupscheduler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class MCDiffBackupScheduler extends JavaPlugin {
+    private BackupMain mainThread;
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        BackupMain main = new BackupMain();
+        this.mainThread = new BackupMain();
     }
 
     @Override

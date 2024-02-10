@@ -2,3 +2,14 @@ name: MCDiffBackupScheduler
 version: '${version}'
 main: org.sk_dev.mcdiffbackupscheduler.MCDiffBackupScheduler
 api-version: 1.20
+
+commands:
+  bkutil:
+    description: MCDiffBackupScheduler Utility
+    permission: op
+    permission-message: permission denied.
+
+permissions:
+  op:
+    description: op needed.
+    default: op
